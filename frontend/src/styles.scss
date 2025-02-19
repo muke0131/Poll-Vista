@@ -1,0 +1,65 @@
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+  }
+  
+  .navbar {
+    padding: 15px 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  .navbar {
+    z-index: 1000;
+  }
+  .navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  .custom-snackbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(0, 81, 255);  
+    color: #fff;                     
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 12px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    max-width: 90%;                  
+    min-height: 50px;
+    margin: 0 auto;                   
+    
+    animation: fadeInUp 0.3s ease-out;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  
+    
+    &.success,
+    &.error,
+    &.info,
+    &.warning {
+      background-color: rgb(21, 114, 244) !important;
+      color: #fff !important;
+    }
+  
+    .mat-button-wrapper {
+      color: inherit;      
+      font-weight: bold;
+      margin-left: 16px;   
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+    

@@ -1,0 +1,126 @@
+$primary-color: #007BFF;
+$secondary-color: #F0F8FF;
+$button-hover-color: #0056b3;
+$button-disabled-color: #ccc;
+$label-color: #222;
+$font-family: 'Arial', sans-serif;
+$border-radius: 10px;
+$input-border-color: #ccc;
+$padding: 20px;
+$margin-bottom: 20px;
+$button-font-size: 1rem;
+$heading-font-size: 1.8rem;
+$subheading-font-size: 1.2rem;
+$small-font-size: 1rem;
+$box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+.response-details {
+  margin-top: 100px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  font-family: $font-family;
+
+  h2 {
+    font-size: 2.2rem;
+    color: $label-color;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: $heading-font-size;
+    color: $label-color;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .question {
+    background-color: $secondary-color;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    width: 100%;
+    max-width: 800px;
+
+    strong {
+      font-size: $subheading-font-size;
+      color: $label-color;
+      display: block;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+  }
+
+  .answer-box {
+    background-color: #eaf2ff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    width: 100%;
+    max-width: 760px;
+  }
+
+  .answer-box p {
+    font-size: $small-font-size;
+    color: #333;
+    margin: 10px 0;
+    padding-left: 15px;
+    border-left: 5px solid $primary-color;
+    line-height: 1.5;
+  }
+
+  button {
+    padding: 12px 18px;
+    background-color: $primary-color;
+    color: white;
+    font-size: $button-font-size;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: center;
+    max-width: 250px;
+    margin-top: 20px;
+    font-weight: bold;
+
+    &:hover {
+      background-color: $button-hover-color;
+    }
+
+    &:disabled {
+      background-color: $button-disabled-color;
+      cursor: not-allowed;
+    }
+  }
+
+  .rating-answer {
+    background-color: #e0f2ff;
+    border-left: 5px solid #007BFF;
+  }
+
+  .text-answer {
+    background-color: #f9f9f9;
+    border-left: 5px solid #6c757d;
+  }
+
+  .dropdown-answer {
+    background-color: #eaf2ff;
+    border-left: 5px solid #0056b3;
+  }
+
+  .mcq-answer {
+    background-color: #f2e8ff;
+    border-left: 5px solid #6a5acd;
+  }
+}

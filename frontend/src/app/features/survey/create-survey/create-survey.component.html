@@ -1,0 +1,64 @@
+<div class="survey-form-container">
+  <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+    <label for="title">Survey Title</label>
+    <input id="title" formControlName="title" type="text" required>
+    <div *ngIf="surveyForm.get('title')?.invalid && surveyForm.get('title')?.touched" class="error-message">
+      Title is required and should have at least 3 characters.
+    </div>
+ 
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description" required></textarea>
+    <div *ngIf="surveyForm.get('description')?.invalid && surveyForm.get('description')?.touched" class="error-message">
+      Description is required and should have at least 10 characters.
+    </div>
+ 
+    <label for="deadline">Deadline</label>
+    <input id="deadline" formControlName="deadline" type="datetime-local" required>
+    <div *ngIf="surveyForm.get('deadline')?.invalid && surveyForm.get('deadline')?.touched">
+      Deadline is required.
+    </div>
+
+    <div>
+      <label for="isPublic">Survey Visibility</label>
+      <select id="isPublic" formControlName="isPublic">
+        <option [ngValue]="true">Public</option>
+        <option [ngValue]="false">Private</option>
+      </select>
+    </div>
+ 
+    <div formArrayName="questions">
+      <div *ngFor="let question of questions.controls; let i = index">
+        <div [formGroupName]="i">
+          <label for="questionText">Question {{ i + 1 }}</label>
+          <input formControlName="questionText" type="text" required>
+          <div *ngIf="question.get('questionText')?.invalid && question.get('questionText')?.touched" class="error-message">
+            Question should have at least 5 alphabets.
+          </div>
+ 
+          <label for="questionType">Question Type</label>
+          <select formControlName="questionType" (change)="onQuestionTypeChange(i)">
+            <option value="text">Text</option>
+            <option value="rating">Rating</option>
+            <option value="MCQ">MCQ</option>
+          </select>
+ 
+          <div *ngIf="question.get('questionType')?.value === 'MCQ'">
+            <div formArrayName="mcqOptions">
+              <div *ngFor="let option of getMcqOptions(question).controls; let j = index">
+                <input [formControl]="option" placeholder="Option {{ j + 1 }}">
+                <button class="remove-button" type="button" (click)="removeMcqOption(i, j)">Remove Option</button>
+              </div>
+              <button class="add-button" type="button" (click)="addMcqOption(i)">Add Option</button>
+            </div>
+          </div>
+
+          <button class="remove-que-button" type="button" (click)="removeQuestion(i)">Remove Question</button>
+        </div>
+        <hr>
+      </div>
+    </div>
+ 
+    <button type="button" (click)="addQuestion()">Add Question</button>
+    <button type="submit" [disabled]="surveyForm.invalid">Submit</button>
+  </form>
+</div>

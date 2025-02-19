@@ -1,0 +1,83 @@
+<div *ngIf="loading" class="loading">
+  Loading survey analytics...
+</div>
+
+<div *ngIf="!loading && analytics" class="analytics-container">
+  <h2>Survey Analytics</h2>
+
+  <div class="analytics-summary-grid">
+    <div class="summary-box">
+      <p class="summary-title">Total Responses</p>
+      <p class="summary-value">{{ analytics.totalResponses }}</p>
+    </div>
+    <div class="summary-box">
+      <p class="summary-title">Average Response Time</p>
+      <p class="summary-value">
+        {{ analytics.averageResponseTime / (60*1000) | number: '1.0-2' }} min
+      </p>
+    </div>
+    <div class="summary-box">
+      <p class="summary-title">Most Answered Question</p>
+      <p class="summary-value">{{ analytics.mostAnsweredQuestion }}</p>
+    </div>
+    <div class="summary-box">
+      <p class="summary-title">Least Answered Question</p>
+      <p class="summary-value">{{ analytics.leastAnsweredQuestion }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="analytics.questions && analytics.questions.length > 0" class="form-group centered-dropdown">
+    <label for="questionDropdown"><strong>Select a Question:</strong></label>
+    <select id="questionDropdown" (change)="onQuestionSelect($event)" class="form-control">
+      <option *ngFor="let question of analytics.questions; let i = index" [value]="i">
+        {{ question.questionText }}
+      </option>
+    </select>
+  </div>
+
+  <ng-container *ngIf="currentQuestion as question">
+    <div class="analytics-chart">
+      <h3>{{ question.questionText }}</h3>
+      <ng-container *ngIf="question.chartData && question.chartData.length > 0; else noData">
+        <ngx-charts-bar-vertical
+          [results]="question.chartData"
+          [scheme]="colorScheme"
+          [xAxis]="true"
+          [yAxis]="true"
+          [legend]="true"
+          [showXAxisLabel]="true"
+          [showYAxisLabel]="true"
+          [view]="barChartView"
+          xAxisLabel="Responses"
+          yAxisLabel="Count"
+        >
+        </ngx-charts-bar-vertical>
+      </ng-container>
+      <ng-template #noData>
+        <p>No data available for this question.</p>
+      </ng-template>
+    </div>
+  </ng-container>
+
+  <div *ngIf="mcqQuestions.length > 0" class="mcq-analytics">
+    <h1>MCQ Question Analytics</h1>
+    <div class="pie-chart-container">
+      <div *ngFor="let question of mcqQuestions" class="pie-chart">
+        <h4>{{ question.questionText }}</h4>
+        <ngx-charts-pie-chart
+          [results]="question.chartData"
+          [scheme]="colorScheme"
+          [legend]="true"
+          [labels]="true"
+          [doughnut]="false"
+          [view]="pieChartView"
+        >
+        </ngx-charts-pie-chart>
+      </div>
+    </div>
+  </div>
+
+  <ng-template [ngIf]="!analytics.questions || analytics.questions.length === 0">
+    <p>No question analytics available.</p>
+  </ng-template>
+</div>

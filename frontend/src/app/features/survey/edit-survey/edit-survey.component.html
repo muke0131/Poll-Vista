@@ -1,0 +1,54 @@
+<div class="container">
+  <h1 class="heading">Edit Survey</h1>
+
+  <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+    <label for="title">Survey Title:</label>
+    <input id="title" formControlName="title" />
+
+    <label for="description">Survey Description:</label>
+    <textarea id="description" formControlName="description"></textarea>
+
+    <label for="deadline">Deadline:</label>
+    <input id="deadline" formControlName="deadline" type="datetime-local" required>
+
+    <!-- New Dropdown for Survey Visibility -->
+    <label for="isPublic">Survey Visibility:</label>
+    <select id="isPublic" formControlName="isPublic">
+      <option [ngValue]="true">Public</option>
+      <option [ngValue]="false">Private</option>
+    </select>
+
+    <hr>
+    <div formArrayName="questions">
+      <div *ngFor="let question of questions.controls; let i = index" [formGroupName]="i">
+        <label>Question: {{ i + 1 }}</label>
+        <input formControlName="questionText" />
+
+        <label>Question Type:</label>
+        <select formControlName="questionType" (change)="onQuestionTypeChange(i)">
+          <option value="text">Text</option>
+          <option value="rating">Rating</option>
+          <option value="MCQ">Multiple Choice</option>
+        </select>
+
+        <div *ngIf="question.get('questionType')?.value === 'MCQ'" formArrayName="mcqOptions">
+          <label>Multiple Choice Options:</label>
+          <div *ngFor="let option of getMcqOptions(question).controls; let j = index" [formGroupName]="j">
+            <input formControlName="optionText" />
+            <button type="button" (click)="removeMcqOption(i, j)">Remove Option</button>
+          </div>
+          <button type="button" (click)="addMcqOption(i)">Add Option</button>
+        </div>
+        
+        <button type="button" (click)="removeQuestion(i)">Remove Question</button>
+        <hr>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button class="addQuestion" type="button" (click)="addQuestion()">Add Question</button>
+      <hr>
+      <button class="submit" type="submit">Save Changes</button>
+    </div>
+  </form>
+</div>

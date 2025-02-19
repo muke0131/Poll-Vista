@@ -1,0 +1,187 @@
+.dashboard-container {
+  padding: 60px;
+  font-size: 1.8rem;         
+  color: #1e2124;       
+  padding-bottom: 20px; 
+
+  h2{
+    margin-top:30px;
+    margin-bottom: 30px;
+  text-align: center;
+
+    font-size:xx-large;
+  }
+}
+ 
+.welcome-text {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+ 
+.center-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+ 
+.create-survey-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 18px 35px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  box-shadow: 0px 4px 8px rgba(0, 123, 255, 0.2);
+}
+ 
+.create-survey-btn:hover {
+  background-color: #0056b3;
+}
+ 
+.survey-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+ 
+.survey-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 320px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+ 
+.survey-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+ 
+.survey-card h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+ 
+.survey-description {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+ 
+.active {
+  color: #007bff;
+  font-weight: bold;
+}
+ 
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+ 
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+ 
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+ 
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+ 
+.btn-outline {
+  background-color: transparent;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+ 
+.btn-outline:hover {
+  background-color: #007bff;
+  color: white;
+}
+ 
+.btn-light {
+  background-color: #f8f9fa;
+  color: #007bff;
+}
+ 
+.btn-light:hover {
+  background-color: #e2e6ea;
+}
+ 
+.btn-link {
+  background-color: transparent;
+  color: #007bff;
+  text-decoration: underline;
+}
+ 
+.btn-link:hover {
+  color: #0056b3;
+}
+ 
+
+.delete-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #ff0000; 
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.delete-icon:hover {
+  color: #cc0000; 
+}
+
+.survey-card {
+  position: relative;
+}
+
+.no-surveys-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.no-surveys-icon {
+  font-size: 3rem;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.no-surveys-message {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #555;
+  text-align: center;
+  margin-top: 10px;
+}

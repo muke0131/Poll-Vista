@@ -1,0 +1,31 @@
+<div *ngIf="surveyResponse; else loading" class="response-details">
+  <h2>Response Details</h2>
+
+  <div *ngIf="isSingleResponse">
+    <p>Started At: {{ surveyResponse.startedAt | date }}</p>
+    <div *ngFor="let response of surveyResponse.responses" class="question">
+      <h4>{{ response.question.questionText }}</h4>
+      <p>Answer: {{ response.answer }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="!isSingleResponse">
+    <h3>All Responses for Survey ID: {{ surveyResponse[0]?.surveyId }}</h3>
+    <div *ngFor="let response of surveyResponse" class="response-item">
+      <h4>Response ID: {{ response.id }}</h4>
+      <p>Started At: {{ response.startedAt | date }}</p>
+      <div *ngFor="let res of response.responses" class="answer-box">
+        <h5>{{ res.question.questionText }}</h5>
+        <p>Answer: {{ res.answer }}</p>
+      </div>
+      <hr />
+    </div>
+  </div>
+
+  <button (click)="onBackToDashboard()">Back to Dashboard</button>
+</div>
+
+
+<ng-template #loading>
+  <p>Loading response data...</p>
+</ng-template>

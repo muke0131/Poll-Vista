@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>{{ surveyData.title }}</h2>
+  <p class="description">{{ surveyData.description }}</p>
+  <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="questions">
+      <div *ngFor="let question of questions.controls; let i = index" [formGroupName]="i" class="question-group">
+        <div class="question-header">
+          <span class="question-number">Question {{ i + 1 }}</span>
+          <span class="question-text">{{ question.value.questionText }}</span>
+        </div>
+
+        <div class="response-container">
+          <ng-container [ngSwitch]="question.value.questionType">
+            <select *ngSwitchCase="'rating'" formControlName="rating">
+              <option [value]="1">1 - Poor</option>
+              <option [value]="2">2 - Fair</option>
+              <option [value]="3">3 - Good</option>
+              <option [value]="4">4 - Very Good</option>
+              <option [value]="5">5 - Excellent</option>
+            </select>
+
+            <select *ngSwitchCase="'dropdown'" formControlName="selectedDropdownOption">
+              <option *ngFor="let option of getDropdownOptions(question).controls" [value]="option.value">{{ option.value }}</option>
+            </select>
+
+            <input *ngSwitchCase="'text'" type="text" formControlName="textAnswer" />
+
+            <div *ngSwitchCase="'MCQ'" class="mcq-options">
+              <label *ngFor="let option of question.get('mcqOptions')?.value; let j = index" class="mcq-option">
+                <input type="radio" [value]="option" [formControlName]="'selectedMcqOption'" /> {{ option }}
+              </label>
+            </div>
+          </ng-container>
+        </div>
+
+           </div>
+    </div>
+
+    <button type="submit" [disabled]="surveyForm.invalid">Submit</button>
+  </form>
+</div>

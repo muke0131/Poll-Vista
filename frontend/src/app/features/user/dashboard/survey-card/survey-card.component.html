@@ -1,0 +1,51 @@
+<div class="survey-card">
+  <button *ngIf="showDelete" (click)="deleteSurvey(survey.id)" class="delete-icon" title="Delete Survey">
+    <i class="fas fa-trash"></i>
+  </button>
+
+  <h2 class="survey-title" [attr.data-fulltext]="survey.title">
+    {{ survey.title }}
+  </h2>
+  <p class="survey-description" [attr.data-fulltext]="survey.description">
+    {{ survey.description }}
+  </p>
+  
+  <p class="survey-info" id="author">
+    <strong>Created By:</strong> {{ survey.createdByName }} ({{ survey.createdByEmail }})
+  </p>
+  <p class="survey-info">
+    <strong>Created At:</strong> {{ survey.createdAt | date:'MMM d, y, h:mm a' }}
+  </p>
+  <p class="survey-info">
+    <strong>Deadline:</strong> {{ survey.deadline | date:'MMM d, y, h:mm a' }}
+  </p>
+  
+  <p class="survey-info">
+    <strong>Status:</strong>
+    <span [class.active]="survey.isActive" [class.inactive]="!survey.isActive">
+      {{ survey.isActive ? 'Active' : 'Inactive' }}
+    </span>
+  </p>
+  
+  <p class="survey-info">
+    <strong>Visibility:</strong> {{ survey.isPublic ? 'Public' : 'Private' }}
+  </p>
+
+  <div class="button-group">
+    <button *ngIf="showEdit" (click)="editSurvey(survey.id)" class="btn btn-primary">Edit</button>
+    <button *ngIf="showViewResponses" (click)="goToSurveyResponse(survey.id)" class="btn btn-outline">
+      View Responses
+    </button>
+    <button *ngIf="showAnalytics" (click)="goToAnalytics(survey.id)" class="btn btn-analytics">Analytics</button>
+    <button *ngIf="showPreview" (click)="previewSurvey(survey.id)" class="btn btn-light">Preview Survey</button>
+    <button *ngIf="showTakeSurvey" 
+      (click)="goToTakeSurvey(survey.id)" 
+      class="btn btn-light"
+      [disabled]="!survey.isActive">
+      Take Survey
+    </button>
+    <button *ngIf="showGenerateLink" (click)="generateSurveyLink(survey.id)" class="btn btn-link">
+      Generate Link
+    </button>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="dashboard-container">
+  <h1 class="welcome-text">Welcome To PollVista!</h1>
+
+  <div class="center-container">
+    <button (click)="goToCreateSurvey()" class="create-survey-btn">+ Create New Survey</button>
+  </div>
+
+<hr>
+  <h2 class="center-heading">My Surveys</h2>
+  <div *ngIf="mySurveys.length > 0; else noMySurveys">
+    <div class="survey-cards">
+      <app-survey-card
+        *ngFor="let survey of mySurveys"
+        [survey]="survey"
+        [showAnalytics]="true"
+        [showDelete]="true"
+        [showEdit]="true"
+        [showViewResponses]="true"
+        [showPreview]="true"
+        [showGenerateLink]="true"
+        (delete)="deleteSurvey($event)"
+        (edit)="editSurvey($event)"
+        (viewResponses)="goToSurveyResponse($event)"
+        (viewAnalytics)="goToAnalytics($event)"
+        (preview)="previewSurvey($event)"
+        (generateLink)="generateSurveyLink($event)"
+      ></app-survey-card>
+    </div>
+  </div>
+  <ng-template #noMySurveys>
+    <div class="no-surveys-container">
+      <div class="no-surveys-icon">📄</div>
+      <p class="no-surveys-message">You have not created any surveys yet.</p>
+    </div>
+  </ng-template>
+<hr>
+  <h2 class="center-heading">Public Surveys</h2>
+  <div *ngIf="publicSurveys.length > 0; else noPublicSurveys">
+    <div class="survey-cards">
+      <app-survey-card
+        *ngFor="let survey of publicSurveys"
+        [survey]="survey"
+        [showTakeSurvey]="true"
+        (takeSurvey)="goToTakeSurvey($event)"
+      ></app-survey-card>
+    </div>
+  </div>
+  <ng-template #noPublicSurveys>
+    <div class="no-surveys-container">
+      <div class="no-surveys-icon">🔒</div>
+      <p class="no-surveys-message">No public surveys available at the moment.</p>
+    </div>
+  </ng-template>
+  

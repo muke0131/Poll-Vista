@@ -1,0 +1,212 @@
+.analytics-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.analytics-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+  background: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.summary-box {
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.summary-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+.summary-value {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.4rem;
+  padding: 40px;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-group {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.centered-dropdown {
+  margin: 0 auto; 
+}
+
+.form-group label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.form-control {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+}
+
+.analytics-chart {
+  width: 100%;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 500px;
+}
+
+.analytics-chart h3 {
+  font-size: 1.5rem;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.mcq-analytics {
+  margin-top: 40px;
+  width: 100%;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.pie-chart-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.pie-chart {
+  background: #ffffff;
+  padding: 25px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px; 
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pie-chart h4 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.ngx-charts-legend {
+  max-width: 700px;
+  text-align: center;
+  margin: 15px auto;
+}
+
+.ngx-charts-legend .legend-labels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.ngx-charts-legend .legend-item {
+  padding: 6px 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  color: #fff;
+  background: #007bff;
+}
+
+@media (max-width: 480px) {
+  .analytics-container {
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  .analytics-summary-grid {
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .summary-title {
+    font-size: 1rem;
+  }
+
+  .summary-value {
+    font-size: 1.2rem;
+  }
+
+  .analytics-chart h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .analytics-chart,
+  .mcq-analytics,
+  .pie-chart {
+    padding: 15px;
+  }
+
+  .form-group label {
+    font-size: 1rem;
+  }
+
+  .form-control {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .pie-chart h4 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .ngx-charts-legend .legend-item {
+    font-size: 0.9rem;
+    padding: 4px 8px;
+  }
+}

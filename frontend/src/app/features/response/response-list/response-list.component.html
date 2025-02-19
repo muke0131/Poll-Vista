@@ -1,0 +1,25 @@
+<div class="response-list-container">
+  <h1>Responses for Survey: {{ survey.title }}</h1>
+  <p>{{ survey.description }}</p>
+
+  <button (click)="downloadExcel()" class="toggle-btn download-btn">
+    Download Responses as Excel
+  </button>
+  
+  <div *ngFor="let response of responses" class="response-card">
+    <h2>Response by: {{ getUserName(response.userId) }}</h2>
+    <p><strong>Submitted At:</strong> {{ response.submittedAt | date }}</p>
+    <p><strong>Started At:</strong> {{ response.startedAt | date }}</p>
+
+    <button (click)="toggleResponse(response.id)" class="toggle-btn">
+      {{ isResponseExpanded(response.id) ? 'Hide Answers' : 'Show Answers' }}
+    </button>
+
+    <div *ngIf="isResponseExpanded(response.id)" class="questions-section">
+      <div *ngFor="let res of response.responses" class="question-response">
+        <h3>{{ res.question.questionText }}</h3>
+        <p><strong>Answer:</strong> {{ res.answer }}</p>
+      </div>
+    </div>
+  </div>
+</div>
