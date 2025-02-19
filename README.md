@@ -1,5 +1,5 @@
 # Poll-Vista
-muke0131: Poll Vista is a dynamic platform that simplifies survey creation, management, and participation. With features like customizable surveys, public/private settings, automatic deadline management, and insightful data visualization through bar and pie charts, Poll Vista empowers users to gather and analyze data with ease and precision.
+ Poll Vista is a dynamic platform that simplifies survey creation, management, and participation. With features like customizable surveys, public/private settings, automatic deadline management, and insightful data visualization through bar and pie charts, Poll Vista empowers users to gather and analyze data with ease and precision.
 
 Key Features
 
