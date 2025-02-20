@@ -50,7 +50,7 @@ export class DashboardComponent implements OnInit {
 
   fetchMySurveys(): void {
     this.isLoading = true;
-    this.http.get<any[]>('http://13.49.18.131:8080/surveys/my-surveys').subscribe(
+    this.http.get<any[]>('/api/surveys/my-surveys').subscribe(
       (data) => {
         this.mySurveys = data;
         this.isLoading = false;
@@ -67,7 +67,7 @@ export class DashboardComponent implements OnInit {
 
   fetchPublicSurveys(): void {
     this.isLoading = true;
-    this.http.get<any[]>('http://13.49.18.131:8080/surveys/others-surveys').subscribe(
+    this.http.get<any[]>('/api/surveys/others-surveys').subscribe(
       (data) => {
         this.publicSurveys = data;
         this.isLoading = false;
@@ -81,7 +81,7 @@ export class DashboardComponent implements OnInit {
   }
 
   fetchUserDetails(): void {
-    this.http.get<any[]>('http://13.49.18.131:8080/users').subscribe(
+    this.http.get<any[]>('/api/users').subscribe(
       (data) => {
         this.users = data;
         this.mapUserDetailsToSurveys(this.mySurveys); 

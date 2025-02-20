@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ResponseService {
-  private apiUrl = 'http://13.49.18.131:8080/responses';
+  private apiUrl = '/api/responses';
 
   constructor(private http: HttpClient) {}
 

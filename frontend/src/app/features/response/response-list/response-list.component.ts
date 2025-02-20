@@ -27,7 +27,7 @@ export class ResponseListComponent implements OnInit {
   }
 
   fetchResponses(): void {
-    this.http.get<any[]>(`http://13.49.18.131:8080/responses/surveys/${this.surveyId}`)
+    this.http.get<any[]>(`/api/responses/surveys/${this.surveyId}`)
       .subscribe(
         (data) => {
           this.responses = data;
@@ -39,7 +39,7 @@ export class ResponseListComponent implements OnInit {
   }
 
   fetchSurveyDetails(): void {
-    this.http.get<any>(`http://13.49.18.131:8080/surveys/${this.surveyId}`)
+    this.http.get<any>(`/api/surveys/${this.surveyId}`)
       .subscribe(
         (data) => {
           this.survey = data;
@@ -51,7 +51,7 @@ export class ResponseListComponent implements OnInit {
   }
 
   fetchUserDetails(): void {
-    this.http.get<any[]>('http://13.49.18.131:8080/users')
+    this.http.get<any[]>('/api/users')
       .subscribe(
         (data) => {
           this.users = data;

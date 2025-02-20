@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class EmailService {
-  private apiUrl = 'http://13.49.18.131:8080/api/email/send';
+  private apiUrl = '/api/api/email/send';
 
   constructor(private http: HttpClient) { }
 

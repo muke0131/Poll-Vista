@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class SurveyService {
-  private apiUrl = 'http://13.49.18.131:8080/surveys'; 
+  private apiUrl = '/api/surveys'; 
   constructor(private http: HttpClient) {} 
 
   private getAuthToken(): string | null {
