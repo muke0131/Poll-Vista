@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8082'; 
+  private apiUrl = 'http://13.49.18.131:8080'; 
 
   constructor(private http: HttpClient) {}
 
@@ -31,6 +31,6 @@ export class AuthService {
   }
 
   getProtectedData(): Observable<any> {
-    return this.http.get('http://localhost:8082/api/protected', { withCredentials: true });
+    return this.http.get('http://13.49.18.131:8080/api/protected', { withCredentials: true });
   }
 }

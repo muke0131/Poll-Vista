@@ -7,7 +7,7 @@ import { Analytics } from '../../model/analytics/analytics.module';
   providedIn: 'root',
 })
 export class AnalyticsService {
-  private apiUrl = 'http://localhost:8082/analytics';
+  private apiUrl = 'http://13.49.18.131:8080/analytics';
 
   constructor(private http: HttpClient) {}
 
