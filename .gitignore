@@ -30,5 +30,6 @@ backend/src/main/resources/application.properties
 frontend/node_modules/
 frontend/.vscode/
 frontend/.angular
+frontend/dist
 
 .DS_Store
